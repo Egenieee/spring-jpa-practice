@@ -7,7 +7,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @WebAppConfiguration
 @SpringBootTest
@@ -18,6 +18,7 @@ class MemberRepositoryTest {
 
     @Test
     @Transactional
+    @Rollback(value = false)
     public void testMember() throws Exception {
         //given
         Member member = new Member();
