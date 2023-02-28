@@ -1,4 +1,4 @@
-package jpabook.jpashop;
+package jpabook.jpashop.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +14,5 @@ public class Member {
     @Id
     @GeneratedValue
     private Long id;
-
     private String username;
 }
