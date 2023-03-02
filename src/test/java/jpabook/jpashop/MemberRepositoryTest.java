@@ -23,7 +23,7 @@ class MemberRepositoryTest {
     public void testMember() throws Exception {
         //given
         Member member = new Member();
-        member.setUsername("memberA");
+        member.setName("memberA");
 
         //when
         Long savedId = memberRepository.save(member);
@@ -31,7 +31,7 @@ class MemberRepositoryTest {
 
         //then
         assertEquals(findMember.getId(), member.getId());
-        assertEquals(findMember.getUsername(), member.getUsername());
+        assertEquals(findMember.getName(), member.getName());
         assertEquals(findMember, member);
     }
 }
