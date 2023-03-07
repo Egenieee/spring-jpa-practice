@@ -2,6 +2,7 @@ package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.item.Album;
 import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.item.Movie;
 import jpabook.jpashop.repository.ItemRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,37 @@ class ItemServiceTest {
 
         //then
         assertEquals(album, itemRepository.fineOne(savedId));
+    }
+
+    @Test
+    public void 아이템_재고_증가() throws Exception {
+        //given
+        Item movie = new Movie();
+        movie.setName("Notebook");
+        movie.addStock(10);
+
+        Long saveId = itemService.saveItem(movie);
+
+        //when
+        movie.addStock(10);
+
+        //then
+        assertEquals(20, itemService.findOne(saveId).getStockQuantity());
+    }
+
+    @Test
+    public void 아이템_재고_감소() throws Exception {
+        //given
+        Item movie = new Movie();
+        movie.setName("Notebook");
+        movie.addStock(10);
+
+        Long saveId = itemService.saveItem(movie);
+
+        //when
+        movie.removeStock(5);
+
+        //then
+        assertEquals(5, itemService.findOne(saveId).getStockQuantity());
     }
 }
