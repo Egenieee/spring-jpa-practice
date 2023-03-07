@@ -5,8 +5,8 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-src/main/resources/css/
-src/main/resources/js/
+src/main/resources/static/css/
+src/main/resources/static/js/
 
 ### STS ###
 .apt_generated
